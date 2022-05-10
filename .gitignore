@@ -26,3 +26,4 @@ hs_err_pid*
 .gradle
 .idea/
 local.properties
+google-services.json
