@@ -65,7 +65,7 @@ class FirestoreFragment : Fragment() {
             binding.latEditText.setText("")
             binding.lngEditText.setText("")
 
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_FirestoreFragment_to_ClientListFragment)
         }
 
     }

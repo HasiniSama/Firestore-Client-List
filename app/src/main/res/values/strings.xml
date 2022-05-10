@@ -8,6 +8,7 @@
     <string name="previous">Previous</string>
     <string name="user_icon">User Icon</string>
     <string name="close_icon">Close Icon</string>
+    <string name="name">Full Name</string>
     <string name="fname">First Name</string>
     <string name="lname">Last Name</string>
     <string name="age">Age</string>
@@ -15,5 +16,8 @@
     <string name="lng">Longitude</string>
     <string name="add_client">Add Client</string>
     <string name="add_client_header">Add a new Client</string>
+    <string name="dash">-</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

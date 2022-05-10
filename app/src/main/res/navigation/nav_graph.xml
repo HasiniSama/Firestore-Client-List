@@ -3,11 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirestoreFragment">
+    app:startDestination="@id/ClientListFragment">
+
+    <fragment
+        android:id="@+id/ClientListFragment"
+        android:name="com.kln.android.androidfirebase.ClientListFragment"
+        android:label="@string/client_list_fragment_label"
+        tools:layout="@layout/fragment_client_list">
+
+        <action
+            android:id="@+id/action_ClientListFragment_to_FirestoreFragment"
+            app:destination="@id/FirestoreFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/FirestoreFragment"
         android:name="com.kln.android.androidfirebase.FirestoreFragment"
         android:label="@string/firestore_fragment_label"
-        tools:layout="@layout/fragment_firestore"/>
+        tools:layout="@layout/fragment_firestore">
+
+        <action
+            android:id="@+id/action_FirestoreFragment_to_ClientListFragment"
+            app:destination="@id/ClientListFragment" />
+    </fragment>
+
 </navigation>
