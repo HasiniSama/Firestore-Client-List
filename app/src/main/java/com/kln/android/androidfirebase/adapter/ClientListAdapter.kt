@@ -2,6 +2,8 @@ package com.kln.android.androidfirebase.adapter
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.kln.android.androidfirebase.R
 import com.kln.android.androidfirebase.model.Client
 
@@ -36,10 +39,18 @@ class ClientListAdapter(private val mList: List<Client>, private val activity: A
         holder.lat.text = "Lat: "+ client.lat
         holder.long.text = "Lgt: "+ client.lng
 
-//        holder.closeBtn.setOnClickListener {
-//            holder.clientDao.remove(itemsViewModel)
-//            holder.card.removeAllViews()
-//        }
+        //deleting a client
+        holder.closeBtn.setOnClickListener {
+
+            val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+            db.collection("clients").document("${client.first} ${client.last}")
+                .delete()
+                .addOnSuccessListener { Log.d(TAG, "Client successfully deleted!") }
+                .addOnFailureListener { e -> Log.w(TAG, "Error deleting Client", e) }
+
+            holder.card.removeAllViews()
+        }
 //
 //        holder.card.setOnClickListener {
 //            val bundle = bundleOf(

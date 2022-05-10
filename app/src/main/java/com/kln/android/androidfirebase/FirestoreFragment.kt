@@ -46,10 +46,9 @@ class FirestoreFragment : Fragment() {
 
             val client = Client(first, last, age, lat, lgt)
 
-            db.collection("clients")
-                .add(client)
-                .addOnSuccessListener { documentReference ->
-                    Log.d(TAG, "Client added with ID: ${documentReference.id}")
+            db.collection("clients").document("$first $last").set(client)
+                .addOnSuccessListener {
+                    Log.d(TAG, "Client $first $last added")
                 }
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Error adding Client", e)
