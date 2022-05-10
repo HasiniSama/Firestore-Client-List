@@ -21,16 +21,12 @@ class FirestoreFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    val db = Firebase.firestore
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val db = Firebase.firestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentFirestoreBinding.inflate(inflater, container, false)
         return binding.root

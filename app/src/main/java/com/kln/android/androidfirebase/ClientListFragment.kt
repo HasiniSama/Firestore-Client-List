@@ -10,8 +10,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.kln.android.androidfirebase.adapter.ClientListAdapter
 import com.kln.android.androidfirebase.databinding.FragmentClientListBinding
 import com.kln.android.androidfirebase.model.Client
@@ -27,7 +25,7 @@ class ClientListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentClientListBinding.inflate(inflater, container, false)
 
