@@ -1,7 +1,6 @@
 package com.kln.android.androidfirebase.adapter
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kln.android.androidfirebase.R
 import com.kln.android.androidfirebase.model.Client
 
-class ClientListAdapter(private val mList: List<Client>, private val activity: Activity?) : RecyclerView.Adapter<ClientListAdapter.ViewHolder>() {
+class ClientListAdapter(private val mList: List<Client>) : RecyclerView.Adapter<ClientListAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,15 +52,15 @@ class ClientListAdapter(private val mList: List<Client>, private val activity: A
 
             holder.card.removeAllViews()
         }
-//
-//        holder.card.setOnClickListener {
-//            val bundle = bundleOf(
-//                "name" to itemsViewModel.name,
-//                "lat" to itemsViewModel.lat,
-//                "lng" to itemsViewModel.lng
-//            )
-//            it.findNavController().navigate(R.id.action_FirstFragment_to_mapsFragment, bundle)
-//        }
+
+        holder.card.setOnClickListener {
+            val bundle = bundleOf(
+                "name" to client.first + " " + client.last,
+                "lat" to client.lat,
+                "lng" to client.lng
+            )
+            it.findNavController().navigate(R.id.action_ClientListFragment_to_MapsFragment, bundle)
+        }
 
     }
 

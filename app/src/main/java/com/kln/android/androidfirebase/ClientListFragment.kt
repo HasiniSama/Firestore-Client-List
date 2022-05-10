@@ -61,11 +61,9 @@ class ClientListFragment : Fragment() {
                         )
                     )
                 }
-                // This will pass the ArrayList to our Adapter
-                val adapter = ClientListAdapter(data, requireActivity().parent)
 
                 // Setting the Adapter with the recyclerview
-                recyclerview.adapter = adapter
+                recyclerview.adapter = ClientListAdapter(data)
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting clients.", exception)
